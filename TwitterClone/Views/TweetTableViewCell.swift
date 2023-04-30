@@ -20,7 +20,7 @@ class TweetTableViewCell: UITableViewCell {
     
     weak var delegate: TweetTableViewCellDelegate?
     
-    private let actionSpacing: CGFloat = 60
+    private let actionSpacing: CGFloat = 50
     
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
@@ -63,7 +63,7 @@ class TweetTableViewCell: UITableViewCell {
     private let replyButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "bubble.left"), for: .normal)
+        button.setImage(UIImage(named: "replyIcon"), for: .normal)
         button.tintColor = .systemGray2
         return button
     }()
@@ -71,7 +71,7 @@ class TweetTableViewCell: UITableViewCell {
     private let retweetButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "arrow.2.squarepath"), for: .normal)
+        button.setImage(UIImage(named: "retweetIcon"), for: .normal)
         button.tintColor = .systemGray2
         return button
     }()
@@ -79,7 +79,7 @@ class TweetTableViewCell: UITableViewCell {
     private let likeButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.setImage(UIImage(named: "heartIcon"), for: .normal)
         button.tintColor = .systemGray2
         return button
     }()
@@ -87,7 +87,7 @@ class TweetTableViewCell: UITableViewCell {
     private let shareButton: UIButton = {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(systemName: "square.and.arrow.up"), for: .normal)
+        button.setImage(UIImage(named: "shareIcon"), for: .normal)
         button.tintColor = .systemGray2
         return button
     }()
@@ -177,8 +177,7 @@ class TweetTableViewCell: UITableViewCell {
         
         let shareButtonConstraints = [
             shareButton.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: actionSpacing),
-            shareButton.centerYAnchor.constraint(equalTo: replyButton.centerYAnchor),
-            shareButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15)
+            shareButton.centerYAnchor.constraint(equalTo: replyButton.centerYAnchor)
         ]
         
         NSLayoutConstraint.activate(avatarImageViewConstraints)
