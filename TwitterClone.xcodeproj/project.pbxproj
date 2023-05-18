@@ -22,6 +22,7 @@
 		304440992A0C8623008D59BF /* AuthenticationViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304440982A0C8623008D59BF /* AuthenticationViewViewModel.swift */; };
 		3044409C2A0C8AAC008D59BF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044409B2A0C8AAC008D59BF /* AuthManager.swift */; };
 		3044409E2A0C93D4008D59BF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044409D2A0C93D4008D59BF /* LoginViewController.swift */; };
+		305798EE2A15AE120048F8B1 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305798ED2A15AE120048F8B1 /* StorageManager.swift */; };
 		3092B5742A10652C00DAC488 /* TwitterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092B5732A10652C00DAC488 /* TwitterUser.swift */; };
 		3092B5762A1065B600DAC488 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092B5752A1065B600DAC488 /* DatabaseManager.swift */; };
 		3092B5782A10685F00DAC488 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092B5772A10685F00DAC488 /* HomeViewViewModel.swift */; };
@@ -60,6 +61,7 @@
 		304440982A0C8623008D59BF /* AuthenticationViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewViewModel.swift; sourceTree = "<group>"; };
 		3044409B2A0C8AAC008D59BF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		3044409D2A0C93D4008D59BF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		305798ED2A15AE120048F8B1 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		3092B5732A10652C00DAC488 /* TwitterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterUser.swift; sourceTree = "<group>"; };
 		3092B5752A1065B600DAC488 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		3092B5772A10685F00DAC488 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 			children = (
 				3044409B2A0C8AAC008D59BF /* AuthManager.swift */,
 				3092B5752A1065B600DAC488 /* DatabaseManager.swift */,
+				305798ED2A15AE120048F8B1 /* StorageManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				304440992A0C8623008D59BF /* AuthenticationViewViewModel.swift in Sources */,
 				3013674329FDE87C002AB429 /* DirectMessagesViewController.swift in Sources */,
 				30E0317C2A09CC0B001D94AF /* OnboardingViewController.swift in Sources */,
+				305798EE2A15AE120048F8B1 /* StorageManager.swift in Sources */,
 				3013672E29FDE53F002AB429 /* TwitterClone.xcdatamodeld in Sources */,
 				3013672429FDE53F002AB429 /* AppDelegate.swift in Sources */,
 				3044409E2A0C93D4008D59BF /* LoginViewController.swift in Sources */,
