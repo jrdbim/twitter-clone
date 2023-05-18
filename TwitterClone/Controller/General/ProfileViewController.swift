@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import Combine
+import SDWebImage
 
 class ProfileViewController: UIViewController {
+    
+    private var viewModel = ProfileViewViewModel()
+    private var subscription: Set<AnyCancellable> = []
     
     private let profileTableView: UITableView = {
         let tableView = UITableView()
@@ -25,13 +30,14 @@ class ProfileViewController: UIViewController {
     }()
     
     private var isStatusBarHidden = true
-
+    
+    private lazy var headerView = ProfileHeaderView(frame: CGRect(x: 0, y: 0, width: profileTableView.frame.width, height: 370))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationItem.title = "Profile"
         
-        let headerView = ProfileHeaderView(frame: CGRect(x: 0, y: 0, width: profileTableView.frame.width, height: 370))
         profileTableView.tableHeaderView = headerView
         profileTableView.contentInsetAdjustmentBehavior = .never
         navigationController?.navigationBar.isHidden = true
@@ -41,6 +47,25 @@ class ProfileViewController: UIViewController {
         profileTableView.delegate = self
         profileTableView.dataSource = self
         configureConstraints()
+        bindView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.retreiveUser()
+    }
+    
+    private func bindView() {
+        viewModel.$user.sink { [weak self] user in
+            guard let user = user else { return }
+            self?.headerView.displayNameLabel.text = user.displayName
+            self?.headerView.usernameLabel.text = "@\(user.username)"
+            self?.headerView.userBioLabel.text = user.bio
+            self?.headerView.followersCountLabel.text = "\(user.followerCount)"
+            self?.headerView.followingCountLabel.text = "\(user.followingCount)"
+            self?.headerView.profileAvatarImageView.sd_setImage(with: URL(string: user.avatarPath))
+        }
+        .store(in: &subscription)
     }
     
     private func configureConstraints() {
@@ -61,7 +86,7 @@ class ProfileViewController: UIViewController {
         NSLayoutConstraint.activate(profileTableViewConstraints)
         NSLayoutConstraint.activate(statusBarViewConstraints)
     }
-
+    
 }
 
 extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {

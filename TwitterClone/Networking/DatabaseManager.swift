@@ -26,9 +26,15 @@ class DatabaseManager {
             .eraseToAnyPublisher()
     }
     
-    func collectionUser(retreive id: String) -> AnyPublisher<TwitterUser, Error> {
+    func collectionUsers(retreive id: String) -> AnyPublisher<TwitterUser, Error> {
         db.collection(userPath).document(id).getDocument()
             .tryMap { try $0.data(as: TwitterUser.self) }
+            .eraseToAnyPublisher()
+    }
+    
+    func colectionUsers(updateFields: [String: Any], for id: String) -> AnyPublisher<Bool, Error> {
+        db.collection(userPath).document(id).updateData(updateFields)
+            .map { _ in true }
             .eraseToAnyPublisher()
     }
     
