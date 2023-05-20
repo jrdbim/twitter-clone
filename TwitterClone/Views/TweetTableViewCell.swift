@@ -29,14 +29,11 @@ class TweetTableViewCell: UITableViewCell {
         imageView.layer.cornerRadius = 25
         imageView.layer.masksToBounds = true
         imageView.clipsToBounds = true
-        imageView.image = UIImage(systemName: "person")
-        imageView.backgroundColor = .red
         return imageView
     }()
     
     private let displayNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "JiraLUL"
         label.font = .systemFont(ofSize: 18, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -44,7 +41,6 @@ class TweetTableViewCell: UITableViewCell {
     
     private let usernameLabel: UILabel = {
         let label = UILabel()
-        label.text = "@JrdLul"
         label.textColor = .secondaryLabel
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -54,9 +50,7 @@ class TweetTableViewCell: UITableViewCell {
     private let tweetTextContentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but"
         label.numberOfLines = 0
-        
         return label
     }()
     
@@ -117,6 +111,13 @@ class TweetTableViewCell: UITableViewCell {
         retweetButton.addTarget(self, action: #selector(didTapRetweet), for: .touchUpInside)
         likeButton.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
         shareButton.addTarget(self, action: #selector(didTapShare), for: .touchUpInside)
+    }
+    
+    func configureTweet(with displayName: String, username: String, tweetContent: String, avatarPath: String) {
+        displayNameLabel.text = displayName
+        usernameLabel.text = "@\(username)"
+        tweetTextContentLabel.text = tweetContent
+        avatarImageView.sd_setImage(with: URL(string: avatarPath))
     }
     
     @objc private func didTapReply() {

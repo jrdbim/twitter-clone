@@ -142,7 +142,7 @@ class ProfileHeaderView: UIView {
     private let indicator: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(red: 29/255, green: 161/255, blue: 242/255, alpha: 1)
+        view.backgroundColor = .twitterBlueColor
         view.layer.cornerRadius = 2
         return view
     }()
